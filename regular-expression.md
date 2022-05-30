@@ -73,3 +73,13 @@ the end of the string is denoted by ```$(dollar)```
 ```p{n, m}``` denotes n to m repetitions of p
 
 ```p{n,}``` denotes n or more repetitions of p
+
+```grep``` copies to stdout lines that match a specified regular expression
+
+Some useful ```grep``` options:
+- -i    ignore upper/lower case difference in matching
+- -v    only display lines that do not match the pattern
+- -c    print a count of mathcing lines
+- -w    only match pattern if it makes a complete word
+
+
