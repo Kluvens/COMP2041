@@ -74,12 +74,28 @@ the end of the string is denoted by ```$(dollar)```
 
 ```p{n,}``` denotes n or more repetitions of p
 
+### grep
 ```grep``` copies to stdout lines that match a specified regular expression
 
 Some useful ```grep``` options:
-- -i    ignore upper/lower case difference in matching
-- -v    only display lines that do not match the pattern
-- -c    print a count of mathcing lines
-- -w    only match pattern if it makes a complete word
+- ```-i```    ignore upper/lower case difference in matching
+- ```-v```    only display lines that do not match the pattern
+- ```-c```    print a count of mathcing lines
+- ```-w```    only match pattern if it makes a complete word
 
+```fgrep``` or ```grep -F``` match strings only (no regular expressions)
+- use if you don't need regex
+- faster
+- avoids bugs from regex syntax accidentally occuring in your match string
 
+```grep -G``` or ```grep``` matches a subset of regular expressions, e.g. ```no + ? | {} ()```
+- faster than ```grep -E``` but this is rarely important these days
+- generally just use ```grep -E```
+
+```grep -E``` or ```egrep``` matches full POSIX regular expressions
+- ```grep -E``` is what you want most of the time
+
+```grep -P``` POSIX regular expressions + Perl extentions
+- standard Python regexes include some but not all Perl extentions
+- use if you need Perl/Python regex extensions
+- PCRE libraty widely used (e.g. Apache)
