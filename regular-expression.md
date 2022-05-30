@@ -24,3 +24,52 @@ Unless a character has a special meaning it matches itself
 
 Any regular expression can be written using only ```()*|\```
 - but many syntax features are present for convenience and clarity.
+
+```dot.``` matches any single character
+
+```square brackets[]``` provide convenient matching of any one of a set of characters.
+
+```[listOfCharacters]``` matches any single character from listOfCharacters
+- e.g. ```[aeiouAEIOU]``` matches any English vowel
+
+A shorthand is available for ranges of characters [first-last]
+- e.g. ```[a-e], [a-z], [0-9], [a-zA-Z], [a-zA-Z0-9]```
+
+```Square brackets[]``` matching can be inverted with an ```^```
+
+```[^listOfCharacters]``` matches any single character except those in listOfCharacter.
+- e.g. ```[ˆa-e]``` matches any character except one of the first five lowercase letters
+
+Ohter characters lose their special meaning inside ```bracket[]``` expression.
+- ```[^x]*x``` matches any characters up to and including the first x.
+
+regular expressions may be used to match against a whole string
+- e.g. ```re.fullmatch``` in python
+
+regular expressions are often used to match a substring(part of a string)
+- e.g. ```grep``` prints lines containing a substring matching the regular expression
+- e.g. ```re.search``` in Python (```re.match``` matches only at start of string)
+
+when matching part of a string you can limit matches to the start or end of a string (or both)
+
+start of the string is denoted by ```^(uparrow)```
+- ```^hello``` matches a string starting with hello
+- note ```^``` has two meanings in regular expressions
+- e.g. ```^[abc]``` matches a or b or c at the start of a string
+- e.g. ```[^abc]``` matches any character except a or b or c
+
+the end of the string is denoted by ```$(dollar)```
+- ```cat$``` matches ```cat``` at the end of a string
+- ```cat.*dog$``` matches any string starting cat and finishing dog
+
+```p+``` denotes one or more repetitions of p
+- e.g. ```[0-9]+``` matches any sequence of digits
+
+```p?``` denotes zero or one occurence of p
+
+```p{n}``` denotes n repetitions of p
+- e.g. ```z[0-9]{7}``` matches a UNSW zid
+
+```p{n, m}``` denotes n to m repetitions of p
+
+```p{n,}``` denotes n or more repetitions of p
