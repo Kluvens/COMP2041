@@ -99,3 +99,5 @@ Some useful ```grep``` options:
 - standard Python regexes include some but not all Perl extentions
 - use if you need Perl/Python regex extensions
 - PCRE libraty widely used (e.g. Apache)
+
+command line ```|``` is called pipe, ```grep -Ev .*[^AB].* input.txt | grep -Ev '.*B{2,}.*A{2,}.*' ``` takes the output of ```grep -Ev .*[^AB].* input.txt``` and process it with ```grep -Ev '.*B{2,}.*A{2,}.*```
