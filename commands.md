@@ -26,3 +26,4 @@
 24. ```echo``` command is used to move some data into a file.
 25. ```zip``` command is used to compress the files into a zip archive, and use the ```unzip``` command to extract the zipped files from a zip archive.
 26. ```hostname``` is used to know the name of the host/network. Adding a ```-i``` to the end will display the IP address of network.
+27. ```wc``` is word counter to summarize its input as a single line. This is often used as last command in pipeline. ```-c```  print the number of characters. ```-w```  print the number of words. ```-l```  print the number of lines only.
