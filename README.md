@@ -46,3 +46,8 @@ By default, ```wc``` prints the number of line, words, characters in its input.
 ```tr``` is transliterate characters which reads chars and writes characters, mapping some chars with others. The synrtax is ```tr sourceChars destChars```
 
 ```tr``` doesn't accept file names on the command line - it uses stdin only. ```tr``` is not line-based, it works with individual chars.
+
+Some useful ```tr``` options:
+- -c  map all bytes not occurring in sourceChars (complement)
+- -s  squeezze adjacent repeated characters out (only copy the first)
+- -d  delete all characters in sourceChars (not destChars)
