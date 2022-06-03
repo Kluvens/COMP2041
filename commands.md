@@ -18,3 +18,8 @@
 16. ```head``` command is used to view the first lines of any test file. By default, it will show the first ten lines, but we can change the number to show. e.g. ```head -n 5 filename.txt.```
 17. ```head``` command is used to view the last ten lines of a text file. More change we can do ```tail -n 5 filename.txt```
 18. ```diff``` command compares the contents of two files line by line and show the difference of the two files. e.g. ```diff file1.ext file2.ext```
+19. ```chmod``` command is a Linux command used to change the read, write and execute permissions of files and directories.
+20. ```kill``` command is used to terminate an unresponsive program manually. It will send a certain signal to the misbehaving app and instructs the app to terminate itself.
+21. ```ping``` command is used to check the connectivity status to a server.
+22. ```uname``` command is short for Unix name and used to print detailed information about your Linux system.
+23. ```history``` command is used to review the commands the user has entered before.
