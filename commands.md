@@ -23,3 +23,6 @@
 21. ```ping``` command is used to check the connectivity status to a server.
 22. ```uname``` command is short for Unix name and used to print detailed information about your Linux system.
 23. ```history``` command is used to review the commands the user has entered before.
+24. ```echo``` command is used to move some data into a file.
+25. ```zip``` command is used to compress the files into a zip archive, and use the ```unzip``` command to extract the zipped files from a zip archive.
+26. ```hostname``` is used to know the name of the host/network. Adding a ```-i``` to the end will display the IP address of network.
