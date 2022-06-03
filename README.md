@@ -33,3 +33,16 @@ Some useful ```cat``` options:
 - -n - number output lines
 - -A - display non-printing characters - handy for debugging
 - -s - squeeze consecutive blank lines into single blank line
+
+```wc``` is word counter to summarize its input as a single line. This is often used as last command in pipeline.
+
+Some useful ```wc``` options:
+- -c  print the number of characters
+- -w  print the number of words
+- -l  print the number of lines only
+
+By default, ```wc``` prints the number of line, words, characters in its input.
+
+```tr``` is transliterate characters which reads chars and writes characters, mapping some chars with others. The synrtax is ```tr sourceChars destChars```
+
+```tr``` doesn't accept file names on the command line - it uses stdin only. ```tr``` is not line-based, it works with individual chars.
