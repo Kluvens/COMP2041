@@ -39,5 +39,13 @@
 - ```sed 's/unix/linux/3g' geekfile.txt``` this command means replacing from nth occurence to all occurences. 
 - ```sed '3 s/unix/linux/' geekfile.txt``` replacing string on a specific line (3 in this case). 
 - ```sed -n 's/unix/linux/p' geekfile.txt``` print only replaced lines.
+- ```sed -n -e 'p' < file``` print all lines
+- ```sed -e '10q' < file``` or ```sed -n -e '1,10p' < file``` print the first 10 lines.
+- ```sed -n -e '81,100p' < file``` print lines 81 to 100
+- ```sed -n -e '/xyz/p' < file``` print lines only containing 'xyz'
+- ```sed -e '/xyz/d' < file``` print lines noly not containing 'xyz'
+- ```sed -E -e 's/\([^:]*\):\([^:]*\):\(.*\)$/\2:\1:\3/'``` reverse the order of the first two columns.
 
-34. ```tr```
+34. ```join```
+35. ```paste```
+36. ```tee```
