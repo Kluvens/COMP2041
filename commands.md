@@ -45,6 +45,7 @@
 - ```sed -n -e '/xyz/p' < file``` print lines only containing 'xyz'
 - ```sed -e '/xyz/d' < file``` print lines noly not containing 'xyz'
 - ```sed -E -e 's/\([^:]*\):\([^:]*\):\(.*\)$/\2:\1:\3/'``` reverse the order of the first two columns.
+- ```sed -E 's/c(.)t(.*)/\1 hi \2/'``` takes ```i like cats really``` and print ```i like a hi s really```. This is because take the character between ```c``` and ```t``` as ```\1``` and takes the rest as ```\2``` and print them aside ```hi``` these characters must be extracted between ```()```.
 
 34. ```join```
 35. ```paste```
