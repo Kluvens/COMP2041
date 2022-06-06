@@ -39,3 +39,5 @@
 - ```sed 's/unix/linux/3g' geekfile.txt``` this command means replacing from nth occurence to all occurences. 
 - ```sed '3 s/unix/linux/' geekfile.txt``` replacing string on a specific line (3 in this case). 
 - ```sed -n 's/unix/linux/p' geekfile.txt``` print only replaced lines.
+
+34. ```tr```
