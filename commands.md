@@ -46,6 +46,9 @@
 - ```sed -e '/xyz/d' < file``` print lines noly not containing 'xyz'
 - ```sed -E -e 's/\([^:]*\):\([^:]*\):\(.*\)$/\2:\1:\3/'``` reverse the order of the first two columns.
 - ```sed -E 's/c(.)t(.*)/\1 hi \2/'``` takes ```i like cats really``` and print ```i like a hi s really```. This is because take the character between ```c``` and ```t``` as ```\1``` and takes the rest as ```\2``` and print them aside ```hi``` these characters must be extracted between ```()```.
+- ```sed -n '/^extern/p' program.c``` prints all lines starting with extern.
+- ```sed -E 's/\#include "(.*)"/#include <\1>/' program.c``` replace all include statements using ```""``` with ```<>```.
+- ```sed -E '/#include.*/d' program.c``` deletes all lines that include ```#include``` in program.c.
 
 34. ```join```
 35. ```paste```
