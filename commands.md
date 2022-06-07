@@ -50,6 +50,6 @@
 - ```sed -E 's/\#include "(.*)"/#include <\1>/' program.c``` replace all include statements using ```""``` with ```<>```.
 - ```sed -E '/#include.*/d' program.c``` deletes all lines that include ```#include``` in program.c.
 
-34. ```join```: merges two files using the values in a field in each file as a common key. The key field can be in a different position in each file, but the files must be ordered on that field. The default key field is 1. ```join file1.txt file2.txt``` means join by the first column. ```join file1.txt file2.txt -a 1``` will print including unpairable lines.
+34. ```join```: merges two files using the values in a field in each file as a common key. The key field can be in a different position in each file, but the files must be ordered on that field. The default key field is 1. ```join file1.txt file2.txt``` means join by the first column. ```join file1.txt file2.txt -a 1``` will print including unpairable lines. ```join -1 2 -2 2 file1.txt file2.txt``` means the use of 2 column of first file as the common field and -2 2 refers to the use of 2 column of second file as the common field for joining.
 35. ```paste```
 36. ```tee```
