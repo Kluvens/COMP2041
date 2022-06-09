@@ -51,3 +51,24 @@ Some useful ```tr``` options:
 - -c  map all bytes not occurring in sourceChars (complement)
 - -s  squeezze adjacent repeated characters out (only copy the first)
 - -d  delete all characters in sourceChars (not destChars)
+
+## Shell
+Shells are command interpreters
+- they allow interactive users to execute the commands
+- typically a command causes another program to be run.
+
+Shells may have a graphical interface
+- e.g. Windows or Mac desktop
+- much easier for naive users
+- much less powerful
+
+command-line shells are programmable, powerful tools for expert users
+
+**bash** is the most popular used shell for unix-like systems
+
+other significant unix-like shells include: dash, zsh, busybox
+
+shells can also be run with commands in a file.
+
+Shells are programming languages.
+
