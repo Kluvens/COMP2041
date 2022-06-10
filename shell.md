@@ -126,3 +126,68 @@ stdin, stdout and stderr for a command can be directed to/from files
 - if first word is not the full (absolute) pathname of a file the colon-separated list of directory specified by the variable PATH is searched.
 - for example if ```PATH=/bin/:/usr/bin:/home/z1234567/bin``` and the command is ```kitten``` the shell will check these files in order: ```/bin/kitten``` ```/usr/bin/kitten``` ```/home/z1234567/bin```. 
 - or ```.``` in PATH causes the current directory to be checked.
+- if ```.``` is not last in PATH then programs in the current directory may be unexpectedly run.
+- this can also happen inside run shell scripts or other programs you run.
+
+## Shell scripts
+```
+cat hello
+echo Hello, John Connor - the time is $(date)
+sh hello
+Hello, John Connor - the time is Fri 29 ...
+```
+
+## Shell built-in variables
+- ```$0``` - the name of the command
+- ```$1``` - the first command-line argument
+- ```$2``` - the second command-line argument
+- ```$#``` - the count of command-line arguments
+- ```$*``` - command-line arguments (don't use)
+- ```$@``` - also command-line arguments (don't use)
+- ```"$*"``` - all the command-line arguments with word-splitting (don't use)
+- ```"$@"``` - all the command-line arguments without splitting (use)
+- ```$?``` - exit status of the most recent command
+- ```$$``` - process ID of this shell
+
+```
+echo name is "$0"
+echo process ID is $$
+echo I have $# arguments
+echo The 4th argument is "'$4'"
+```
+```
+./args.sh hi how are you
+```
+```
+name is ./args.sh
+process ID is 101236
+I have 4 arguments
+The 5th argument is 'you'
+```
+
+## Debugging shell scripts
+- test parts of shell script from command line
+- use ```echo``` to print the value of variables
+- add ```set -x``` to see commands being executed (or equivalently run ```/bin/dash -x script.sh```)
+
+## Exit status and control
+when unix-like programs finish they give the operating system an **exit status**
+- the return value of main becomes the exit status of a C program
+- or if exit is called, its argument is the exit status
+- in Python exit status is supplied as an argument to sys.exit
+
+an exit status is an integer
+- by convention a zero exit status indicated normal execution
+- a non-zero exit status indicates an error occurred
+- which non-zero integer might indicate the nature of the problem
+
+program exit status is often ignored
+- not important writing single programs
+- very important when combining multiple programs
+
+flow of execution in shell scripts based on exit status
+- if/while statement conditions use exit status
+
+two weird utilities
+- /bin/true does nothing and always exits with status 0
+- /bin/false does nothing and always exits with status 1
