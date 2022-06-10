@@ -63,3 +63,55 @@ END
 HELLO ANDREW
 HOW ARE YOU
 ```
+
+## $((expression))
+$((expression)) is evaluated as an arithmetic expression
+- expression is evaluated as c-like integer arithmetic
+- and is replaced with the result
+- the ```$``` on variables can be omitted in expressions
+
+```
+x=8
+answer=$((x*x - 3*x + 2))
+echo $answer
+-- this will print 42
+```
+
+## word splitting
+``` python
+import sys
+print(f'sys.argv = {sys.argv}')
+```
+```
+print_argv.py hello andrew
+-- output is sys.argv = ['./print_argv.py', 'hello', 'andrew']
+```
+```
+print_argv.py "$y $((6*7)) $(date)"
+-- all these will be interpreted
+```
+
+## *?[]! - pathname globbing
+- ```*?[]!``` characters cause a word to be matched against pathnames
+- ```*``` matches 0 or more of any character - equivalent to regex ```.*```
+- ```?``` matches any one characters - equivalent to regex ```.```
+- ```[characters]``` matches 1 of characters - same as regex ```[]```
+- ```[!characters]``` matches 1 character not in characters - same as regex ```[^]```
+- if no pathname matches the word is unchanged
+- aside: globbing also availavle in Python, Perl, C and other languages
+
+```
+echo *.[ch]
+-- will git functions.c functions.h i.h main.c
+-- which is any file end with .c or .h
+```
+
+## I/O redirection
+stdin, stdout and stderr for a command can be directed to/from files
+- ```< infile``` - connect stdin to the file infile
+- ```> outfile``` - send stdout to the file outfile
+- ```>> outfile``` - append stdout to the file outfile
+- ```2> outfile``` - send stderr to the file outfile
+- ```2>> outfile``` - append stderr to the file outfile
+- ```> outfile 2>&1``` - send stderr+stdout to outfile
+- ```1>&2``` - send stdout to stderr
