@@ -191,3 +191,34 @@ flow of execution in shell scripts based on exit status
 two weird utilities
 - /bin/true does nothing and always exits with status 0
 - /bin/false does nothing and always exits with status 1
+
+## if statements in shell
+``` shell
+if gcc main.c
+then 
+  echo your C compiles
+elif python3 main.c
+  echo you have written Python not C
+else
+  echo program broken - send help
+fi
+``` 
+
+## while statements in shell
+``` shell
+last=$1
+number=1
+while test $number -le "$last"
+do
+  echo $number
+  number=$((number + 1))
+done
+```
+
+## for statements in shell
+``` shell
+for a in $*
+do
+  echo "$a"
+done
+```
