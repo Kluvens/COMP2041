@@ -136,6 +136,15 @@ echo Hello, John Connor - the time is $(date)
 sh hello
 Hello, John Connor - the time is Fri 29 ...
 ```
+``` shell
+$ cat >cat
+#!/bin/sh
+echo miaou
+-- this is using cat to create a shell script called cat.
+-- first two bytes (i.e. characters) of a script (#!) are read by the operating system 
+-- to signify that the commands in the script should be fed to the indicated interpreter (/bin/sh).
+-- In this instance the only command in the script is echo, which just writes whatever it's given (miaou) to stdout.
+```
 
 ## Shell built-in variables
 - ```$0``` - the name of the command
