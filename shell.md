@@ -115,3 +115,14 @@ stdin, stdout and stderr for a command can be directed to/from files
 - ```2>> outfile``` - append stderr to the file outfile
 - ```> outfile 2>&1``` - send stderr+stdout to outfile
 - ```1>&2``` - send stdout to stderr
+
+## Pipelines
+- command1 | command2 | command3
+- stdout of command(n-1) connected to stdin of command(n), which means command(n) takes the output of command(n-1)
+- beware changes to variables in pipeline are lost
+
+## searching PATH for the program
+- first word on line specifies command to be run.
+- if first word is not the full (absolute) pathname of a file the colon-separated list of directory specified by the variable PATH is searched.
+- for example if ```PATH=/bin/:/usr/bin:/home/z1234567/bin``` and the command is ```kitten``` the shell will check these files in order: ```/bin/kitten``` ```/usr/bin/kitten``` ```/home/z1234567/bin```. 
+- or ```.``` in PATH causes the current directory to be checked.
