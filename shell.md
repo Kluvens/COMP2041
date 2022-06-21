@@ -231,3 +231,36 @@ do
   echo "$a"
 done
 ```
+
+## conditional execution examples
+``` shell
+# run a.out if it exists and is executablr
+# do the second part if the first exit status is 0
+test -x a.out && ./a.out
+
+# if directory tmp doesn't exist create it
+# do the second part if the first exit status is 1
+test -d tmp || mkdir tmp
+
+# if directory tmp doesn't exist create it
+{test -d tmp || mkdir tmp;} && chmod 755 tmp
+```
+
+## example - renaming files - main loop
+``` shell
+for filename in "$@"
+do
+  new_filename=$(echo "$filename" | tr '[:upper:]' '[:lower:]')
+  test "$filename" = "$new_filename" &&
+    continue
+  if test -r "$new_filename"
+  then
+    echo "$0: $new_filename exists" 1>&2
+  elif test -e "$filename"
+  then
+    mv -- "$filename" "$new_filename"
+  else
+    echo "$0: $filename not found" 1>&2
+  fi
+done
+```
