@@ -264,3 +264,52 @@ do
   fi
 done
 ```
+
+## creating a 1001 file C program - creating the files
+``` shell
+i=0
+while test $i -lt 1000
+do
+  # add a line to main.c to call the function f$i
+  cat >>main.c <<eof
+  int f$i(void);
+  v += f$i();
+eof
+   # create file$i.c containing function f$i
+  cat >file$i.c <<eof
+int f$i(void) {
+  return $i;
+}
+eof
+  i=$((i + 1))
+done
+```
+
+## example plagiarism_detection
+``` shell
+TMP_FILE1=$(mktemp /tmp/plagiarism_tmp.1.XXXXXXXXXX)
+TMP_FILE2=$(mktemp /tmp/plagiarism_tmp.2.XXXXXXXXXX)
+trap 'rm -f $TMP_FILE1 $TMP_FILE2;exit' INT TERM EXIT
+
+substitutions='
+    s/\/\/.*//
+    s/"[^"]"/s/g
+    s/[a-zA-Z_][a-zA-Z0-9_]*/v/g'
+
+for file1 in "$@"
+do
+    for file2 in "$@"
+    do
+        test "$file1" = "$file2" &&
+            break # avoid comparing pairs of assignments twice
+
+        sed "$substitutions" "$file1"|sort >$TMP_FILE1
+        sed "$substitutions" "$file2"|sort >$TMP_FILE2
+
+        if diff -i -w $TMP_FILE1 $TMP_FILE2 >/dev/null
+        then
+            echo "$file1 is a copy of $file2"
+        fi
+    done
+done
+```
