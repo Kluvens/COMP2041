@@ -313,3 +313,21 @@ do
     done
 done
 ```
+
+## example: tag music
+``` shell
+#!/bin/dash
+
+for album in "$@"
+do
+    for file in "$album"/*.mp3          -- every file in the directory(directory quoted by "")
+    do 
+        title=$(echo "$file" | sed -E 's/(.*)- (.*) -(.*)/\2/')
+        track=$(echo "$file" | sed -E 's/(.*)\/(.*) - (.*) - (.*)/\2/' | sed -E 's/ -.*//') 
+        artist=$(echo "$file" | sed -E 's/.* - //' | sed -E 's/.mp3//')
+        year=$(echo "$file" | sed -E 's/(.*), (.*)\/(.*)/\2/')
+        newalbum=$(basename "$album")
+        id3 -t "$title" -T "$track" -a "$artist" -A "$newalbum" -y "$year" "$file" > /dev/null
+    done
+done
+```
