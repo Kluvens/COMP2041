@@ -69,17 +69,70 @@ Common flags:
 - -P add a passphrase (better to use stdin)
 
 ## git commands
-The GIG 7:
+The BIG 7:
 - git init <repo> or git clone <repoURL>
 - git status
 - git add <file>
 - git commit -m "message"
 - git pull
 - git push
- 
+
 The others
 - git branch <branch>
 - git checkout <branch>
 - git fetch
 - git log
 - git stash
+
+## Git commands explanation
+### git init
+git-init creates an empty git repository
+
+### git clone
+git-clone clone a repository into a new directory
+
+### git status
+git-status show the working tree stratus
+
+it has many options:
+- -s/--short output in short-format
+- --long output in long-format
+- --porcelain [<version>] easy-to-parse format for scripts, with the API <version>
+- -v/--verbose show the textual changes that are staged to be commited
+ 
+### git log
+git-log displays commited snapshots
+
+### git add
+git-add takes a modified file in your working directory and places the modified version in a staging area
+
+### git commit
+git-commit takes everything from the staging area and makes a permanent snapshot of the current state of your repository that is associated with a unique identifier
+
+### git stash
+git-stash command takes your uncommitted changes(both staged and unstaged), saves them away for later use, and then reverts them from your working copy.
+
+### git fetch
+git-fetch is the command that tells the local repository that there are changes available in the remote repository without bringing the changes into the local repository
+
+### git pull
+git-pull on the other hand brings the copy of the remote directory changes into the local repository
+
+### git merge
+git-merge command is used to integrate changes from another branch
+ 
+### git branch
+- **git-branch** will list all the branches in the repository
+- **git branch \<branch\>** creates a new branch called <branch>
+- **git branch -d \<branch\>** delete the specified branch(this is a safe operation in that git prevents you from deleting the branch if it has unmerged changes)
+- **git branch -D \<branch\>** force delete the specified branch, even if it has unmerged changes
+- **git branch -m \<branch\>** rename the current branch to <branch>
+- **git branch -a** list all remote branches
+
+## Tracking a project with git:
+- project must be in single directory tree
+- usually don't want to track all files in directory tree
+- don't track binaries, derived files, temporary files, large static files, secrets, etc.
+- use .gitignore files to indicate files never want to track
+- use git add <file> to indicate you want to track file
+- careful: git add <directory> will recursively add every file in directory
