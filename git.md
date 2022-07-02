@@ -129,6 +129,17 @@ git-merge command is used to integrate changes from another branch
 - **git branch -m \<branch\>** rename the current branch to <branch>
 - **git branch -a** list all remote branches
 
+### git checkout
+the git checkout command lets you navigate between the branches created by git branch
+
+### git rm
+git rm can be used to remove individual files or a collection of files. The primary function of git rm is to remove tracked files from the git index
+
+ **git rm [-f/--force] <file>** is used to remove files
+
+### git push
+git push command is used to upload local repository content to a remote repository.
+ 
 ## Tracking a project with git:
 - project must be in single directory tree
 - usually don't want to track all files in directory tree
