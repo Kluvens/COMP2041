@@ -70,16 +70,16 @@ Common flags:
 
 ## git commands
 The BIG 7:
-- git init <repo> or git clone <repoURL>
+- git init \<repo\> or git clone \<repoURL\>
 - git status
-- git add <file>
+- git add \<file\>
 - git commit -m "message"
 - git pull
 - git push
 
 The others
-- git branch <branch>
-- git checkout <branch>
+- git branch \<branch\>
+- git checkout \<branch\>
 - git fetch
 - git log
 - git stash
@@ -97,7 +97,7 @@ git-status show the working tree stratus
 it has many options:
 - -s/--short output in short-format
 - --long output in long-format
-- --porcelain [<version>] easy-to-parse format for scripts, with the API <version>
+- --porcelain [\<version\>] easy-to-parse format for scripts, with the API \<version\>
 - -v/--verbose show the textual changes that are staged to be commited
  
 ### git log
@@ -123,10 +123,10 @@ git-merge command is used to integrate changes from another branch
  
 ### git branch
 - **git-branch** will list all the branches in the repository
-- **git branch \<branch\>** creates a new branch called <branch>
+- **git branch \<branch\>** creates a new branch called \<branch\>
 - **git branch -d \<branch\>** delete the specified branch(this is a safe operation in that git prevents you from deleting the branch if it has unmerged changes)
 - **git branch -D \<branch\>** force delete the specified branch, even if it has unmerged changes
-- **git branch -m \<branch\>** rename the current branch to <branch>
+- **git branch -m \<branch\>** rename the current branch to \<branch\>
 - **git branch -a** list all remote branches
 
 ### git checkout
@@ -135,7 +135,7 @@ the git checkout command lets you navigate between the branches created by git b
 ### git rm
 git rm can be used to remove individual files or a collection of files. The primary function of git rm is to remove tracked files from the git index
 
- **git rm [-f/--force] <file>** is used to remove files
+ **git rm [-f/--force] \<file\>** is used to remove files
 
 ### git push
 git push command is used to upload local repository content to a remote repository.
@@ -145,5 +145,5 @@ git push command is used to upload local repository content to a remote reposito
 - usually don't want to track all files in directory tree
 - don't track binaries, derived files, temporary files, large static files, secrets, etc.
 - use .gitignore files to indicate files never want to track
-- use git add <file> to indicate you want to track file
-- careful: git add <directory> will recursively add every file in directory
+- use git add \<file\> to indicate you want to track file
+- careful: git add \<directory\> will recursively add every file in directory
